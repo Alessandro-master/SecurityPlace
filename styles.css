@@ -1,0 +1,303 @@
+:root {
+  --bg: #0f0b10;
+  --card: #17131a;
+  --accent: #8b5cf6;
+  --muted: #bdb5c9;
+  --glass: rgba(255, 255, 255, 0.03);
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: Inter, system-ui, Segoe UI, Arial;
+  background-image: url(IMG/sunset-time-tropical-beach-sea-with-coconut-palm-tree.jpg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  color: #eee;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  background: var(--bg);
+  max-width: 980px;
+  margin: 28px auto;
+  padding: 28px;
+  border-radius: 5px;
+  opacity: 0.95;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 19px 38px,
+    rgba(0, 0, 0, 0.22) 0px 15px 12px;
+}
+header {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  align-items: center;
+}
+.logo {
+  width: 100px;
+  height: 100px;
+  border-radius: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Playfair Display";
+  font-size: 22px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+.logo img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+h1 {
+  font-family: "Playfair Display";
+  margin: 0;
+  font-size: 28px;
+  line-height: 1.2;
+  flex: 1;
+  min-width: 200px;
+}
+p.lead {
+  color: var(--muted);
+  margin-top: 6px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.hero {
+  margin-top: 18px;
+  padding: 0;
+}
+.hero .card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 16px;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  width: 100%;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+.hero .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 50px 15px #ef9dff;
+}
+
+.hero .card h3 {
+  margin: 6px 0 0;
+  font-size: 15px;
+}
+.hero .card p {
+  margin: 6px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.grid-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 18px;
+}
+.card-sorpresa {
+  width: 100%;
+  height: 180px;
+  background: var(--glass);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+
+  color: var(--muted);
+  cursor: pointer;
+  transform-style: preserve-3d;
+  transition: transform 0.5s;
+  position: relative;
+  box-shadow: rgb(255, 204, 52) 0px 2px 5px 1px;
+}
+.card-sorpresa.flipped {
+  transform: rotateY(180deg);
+  box-shadow: rgb(255, 110, 52) 0px 2px 5px 1px;
+}
+.card-sorpresa .front,
+.card-sorpresa .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  box-sizing: border-box;
+}
+.card-sorpresa .back {
+  transform: rotateY(180deg);
+  background: var(--card);
+  color: #eee;
+  font-size: 13px;
+  overflow: auto;
+  text-align: center;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.9));
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  overflow: auto;
+  z-index: 1000;
+}
+.modal.open {
+  display: flex;
+}
+.panel {
+  width: 100%;
+  max-width: 900px;
+  background: linear-gradient(180deg, #0f0b10, #17131a);
+  border-radius: 12px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
+  max-height: 90vh;
+  overflow: auto;
+}
+.panel header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.panel .title {
+  font-family: "Playfair Display";
+  font-size: 20px;
+  color: #eee;
+  flex: 1;
+  min-width: 150px;
+}
+.panel .close {
+  margin-left: auto;
+  background: none;
+  border: 0;
+  color: var(--muted);
+  cursor: pointer;
+}
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+.btn {
+  background: linear-gradient(90deg, var(--accent), #6d28d9);
+  border: 0;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+.btn.ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+footer {
+  margin-top: 18px;
+  color: var(--muted);
+  font-size: 13px;
+  text-align: center;
+}
+
+@media (max-width: 720px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  h1 {
+    font-size: 22px;
+  }
+  .card-sorpresa {
+    height: 140px;
+    font-size: 12px;
+  }
+  .panel {
+    padding: 12px;
+  }
+  .actions {
+    justify-content: center;
+  }
+  .logo {
+    width: 64px;
+    height: 64px;
+  }
+  .logo img {
+    width: 75%;
+  }
+}
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+  .card-sorpresa {
+    height: 120px;
+    font-size: 11px;
+  }
+  .btn {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  .logo img {
+    width: 80%;
+  }
+}
+
+.hero {
+  padding: 30px;
+  margin-top: 18px;
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.hero::-webkit-scrollbar {
+  width: 8px;
+}
+
+.hero::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+.hero::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.hero .card {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.hero .card div {
+  max-height: 80px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.hero .card div::-webkit-scrollbar {
+  width: 6px;
+}
+.hero .card div::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 3px;
+}
